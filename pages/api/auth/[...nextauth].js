@@ -16,7 +16,7 @@ const options = {
         // Authentication Logic: local function, external API call, etc
         //const user = { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
         try {
-          const user = await axios.get("http://127.0.0.1:8000/portal/users/list/");
+          const user = await axios.post("http://127.0.0.1:8000/portal/api/login/", credentials);
     
           if (user) {
             console.log(user.data);
