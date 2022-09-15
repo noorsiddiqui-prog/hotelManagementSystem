@@ -5,7 +5,10 @@ import axios from 'axios';
 // const cookie = new Cookies();
 import {
   
+<<<<<<< HEAD
   getSession,
+=======
+>>>>>>> 0300a23 (updated)
   useSession
 } from 'next-auth/react';
 
@@ -39,6 +42,7 @@ export default function ProfileComp() {
 
     const onSubmit = async e => {
         e.preventDefault();
+<<<<<<< HEAD
 
         const config = {
             headers: {
@@ -46,6 +50,16 @@ export default function ProfileComp() {
                 'Content-Type': 'multipart/form-data',
             }
         };
+=======
+        
+        // const config = {
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'multipart/form-data',
+        //         'Authorization': `Bearer ${token}`
+        //     }
+        // };
+>>>>>>> 0300a23 (updated)
 
         const formData = new FormData();
         formData.append('name', name);
@@ -60,10 +74,23 @@ export default function ProfileComp() {
         formData.append('password2', password2);
 
         const body = formData;
+<<<<<<< HEAD
         const token = getSession('token');
         try {
             const res = await axios.post('http://localhost:8000/portal/hotelprofile/', body, config,
             {headers: {'Authorization': `Bearer ${token}`} }
+=======
+        // const token = getCookie('token');
+        let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzMTQ3MzA5LCJpYXQiOjE2NjMxMzY1MDksImp0aSI6IjQxZDllYzFlZjc1ZjRmZWU4YjFhYjgxN2MzZDA1Y2Y1IiwidXNlcl9pZCI6NX0.1mR4nRyQiVQKpSlphxL-1A0gSkj_zo8NCOn8p8kvAcQ'
+        
+       try {
+            const res = await axios.post('http://localhost:8000/portal/hotelprofile/', body, {headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'multipart/form-data',
+              'Authorization': `Bearer ${token}`
+          }}
+            // {headers: {'Authorization': `Bearer ${token}`} }
+>>>>>>> 0300a23 (updated)
             );
 
             // if (res.status === 201) {

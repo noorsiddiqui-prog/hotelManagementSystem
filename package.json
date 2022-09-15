@@ -20,7 +20,7 @@
     "flowbite-datepicker": "^1.2.2",
     "flowbite-react": "^0.1.6",
     "jsonwebtoken": "^8.5.1",
-    "next": "^12.2.5",
+    "next": "^12.3.0",
     "next-auth": "^4.10.3",
     "nookies": "^2.5.2",
     "prop-types": "^15.8.1",
