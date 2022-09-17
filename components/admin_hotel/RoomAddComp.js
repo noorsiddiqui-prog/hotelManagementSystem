@@ -103,7 +103,7 @@ export default function RoomAddComp() {
                         <option value="twin">Twin</option>
                         <option value="hollywoodTR">Hollywoord Twin Room</option>
                         <option value="d-double">Double-Double</option>
-                        <option value="suite">Suite / Executive Suite</option>
+                        <option value="suite">Suite / Executive Suite</option>  
                         <option value="presidentSuite">Presidential Suite</option>
                         <option value="connectingRooms">Connecting rooms</option>
 
