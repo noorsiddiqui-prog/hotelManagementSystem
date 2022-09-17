@@ -173,7 +173,7 @@ useEffect(() => {
                  return(  */}
                 
                 {data.map(x => (
-                    <div >
+                    <div key={x.id}>
                  <tr  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 {/* <td class="p-4 w-4">
                     <div class="flex items-center">
@@ -182,7 +182,7 @@ useEffect(() => {
                     </div>
                 </td> */}
                 <th class=" w-4 h-4">
-                    <img src={x.room_images} width={100}/>
+                    <img src={x.room_images} width="500" height="600"/>
                 </th>
                 <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {x.room_type}
