@@ -29,8 +29,9 @@ import React, { useEffect, useState } from 'react'
 
 
 export default function RoomsListComp() {
-
-    const [chars, setChars] = useState([]);
+    const [loading, setLoading] = useState(true);
+    // const [chars, setChars] = useState([]);
+    const [data, setData] = useState([])
 
 // useEffect(() => {
 //     (async () => {
@@ -69,26 +70,46 @@ export default function RoomsListComp() {
 
 
 
+// useEffect(() => {
+//     (async () => {
+//         const todos = await  axios({
+//             method: "get",
+//             url: 'http://127.0.0.1:8000/portal/room/list/',
+//             headers: {
+//               Authorization: `Bearer ${token}`,
+//             },
+//         }).then((response) => {
+//             console.log(response.data);
+//             const todosData = response.data
+//             setChars(todosData)
+//           });
+
+
+
+//     })();
+// }, [])
+
 useEffect(() => {
-    (async () => {
-        const todos = await  axios({
-            method: "get",
-            url: 'http://127.0.0.1:8000/portal/room/list/',
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-        }).then((response) => {
-            console.log(response.data);
-            const todosData = response.data
-            setChars(todosData)
-          });
+    const fetchData = async () =>{
+      setLoading(true);
+      try {
+        const {data: response} = await axios({
+                        method: "get",
+                        url: 'http://127.0.0.1:8000/portal/room/list/',
+                        headers: {
+                          Authorization: `Bearer ${token}`,
+                        },
+                    });
+        setData(response);
+        console.log(response)
+      } catch (error) {
+        console.error(error.message);
+      }
+      setLoading(false);
+    }
 
-
-
-    })();
-}, [])
-
-
+    fetchData();
+  }, []);
 
     
   return (
@@ -139,8 +160,8 @@ useEffect(() => {
                  
                  return(  */}
                 
-                {chars && chars.map((x) => {
-                    <div>
+                {data && data.map((x) => {
+                    <div >
                  <tr  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="p-4 w-4">
                     <div class="flex items-center">
@@ -149,30 +170,30 @@ useEffect(() => {
                     </div>
                 </td>
                 <th class=" w-4 h-4">
-                    {/* <img src={x.room_images} /> */}
+                    <img src={x.room_images} />
                 </th>
                 <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {/* {x.room_type} */}
+                    {x.room_type}
                 </td>
                 <td class="py-4 px-6">
-                    {chars.room}
+                    {x.room}
                 </td>
                 <td class="py-4 px-6">
-                    {/* {x.beds} */}
+                    {x.beds}
                 </td>
                 <td class="py-4 px-6">
-                    {/* {x.room_price} */}
+                    {x.room_price}
                 </td>
                 <td class="py-4 px-6">
-                    {/* {x.is_available} */}
+                    {x.is_available}
                 </td>
                 <td class="py-4 px-6">
-                    {/* {x.hotel} */}
+                    {x.hotel}
                 </td>
                 <td class="py-4 px-6">
                 {/* <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
                      */}
-                     {/* {x.room_description} */}
+                     {x.room_description}
                 </td>
                 <td class="flex items-center py-4 px-6 space-x-3">
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
