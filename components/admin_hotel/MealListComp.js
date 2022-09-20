@@ -63,24 +63,24 @@ export default function MealListComp() {
         </thead>
         <tbody>
         {data.map(x => (
-            <div >
+            <div key={x.id}>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="p-4 w-32">
+                <td class="p-4 w-32" key={x.food_image}>
                     <img src={x.food_image} />
                 </td>
-                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white" key={x.food_type}>
                     {x.food_type}
                 </td>
-                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white" key={x.food_name}>
                     {x.food_name}
                 </td>
-                <td class="py-4 px-6">
+                <td class="py-4 px-6" key={x.hotel_no}>
                     {/* <div class="flex items-center space-x-3">
                     <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
                     </div> */}
                     {x.hotel_no}
                 </td>
-                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white" key={x.food_price}>
                     {x.food_price}
                 </td>
                 <td class="py-4 px-6">
