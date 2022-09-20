@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 
 // export const getStaticProps = async () => {
-    const token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzNDA5NDk2LCJpYXQiOjE2NjMzOTg2OTYsImp0aSI6ImUzZWU2NjBhYjJkYzQ4M2Y5MDhmMjZkNTQ4NjU1ZTAzIiwidXNlcl9pZCI6M30.S2-RWyJMZzW8htHOqvrqQ6IrcKuA_oJOSYNBi4P_7Ec"
+    const token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzNjEyMTcwLCJpYXQiOjE2NjM2MDEzNzAsImp0aSI6IjA4OTA5ZTE2NjI2NTQzZTFiYjg2OWM1NTk4NDVkM2NjIiwidXNlcl9pZCI6M30.PbpXQho2uweHw5xKKDCVyuFOWkXwHikKjQPUrl5NlMg"
 
 //     const res = await fetch("http://127.0.0.1:8000/portal/room/", {
 //         headers: {
@@ -115,8 +115,8 @@ useEffect(() => {
   return (
     <div>
       
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="p-4">
@@ -173,7 +173,7 @@ useEffect(() => {
                  return(  */}
                 
                 {data.map(x => (
-                    <div key={x.id}>
+                    <div >
                  <tr  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 {/* <td class="p-4 w-4">
                     <div class="flex items-center">
@@ -181,28 +181,28 @@ useEffect(() => {
                         <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                     </div>
                 </td> */}
-                <th class=" w-4 h-4">
+                <th class=" w-4 h-4" key={x.id}>
                     <img src={x.room_images} width="500" height="600"/>
                 </th>
-                <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white" key={x.id}>
                     {x.room_type}
                 </td>
-                <td class="py-4 px-6">
+                <td class="py-4 px-6" key={x.id}>
                     {x.room}
                 </td>
-                <td class="py-4 px-6">
+                <td class="py-4 px-6" key={x.id}>
                     {x.beds}
                 </td>
-                <td class="py-4 px-6">
+                <td class="py-4 px-6" key={x.id}>
                     {x.room_price}
                 </td>
-                <td class="py-4 px-6">
-                    {x.is_available}
+                <td class="py-4 px-6" key={x.id}>
+                    {x.is_available }
                 </td>
-                <td class="py-4 px-6">
+                <td class="py-4 px-6" key={x.id}>
                     {x.hotel}
                 </td>
-                <td class="py-4 px-6">
+                <td class="py-4 px-6" key={x.id}>
                 {/* <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
                      */}
                      {x.room_description}
@@ -256,8 +256,8 @@ useEffect(() => {
             
             </tr> */}
         </tbody>
-    </table>
 </div>
+    </table>
 
     </div>
     
