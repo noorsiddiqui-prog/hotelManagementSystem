@@ -15,11 +15,20 @@ export default function RoomAddComp() {
 
     const { data: session, status } = useSession()
 
-    const items = ['Single', 'Double', 'Triple', 'quad', 'queen']
+    // const items = ['Single', 'Double', 'Triple', 'quad', 'queen']
+    // const items = [{ label: 'Single', value: 1 },
+    // { label: 'Double', value: 2 },
+    // { label: 'Triple', value: 3 },
+    // { label: 'quad', value: 4 },
+    // { label: 'queen', value: 5 },
+    //     // {label :'', value:''},
+    //     // {label :'', value:''},
+    // ]
 
     const [hotel, setHotel] = useState('');
     const [room, setRoom] = useState('');
-    const [room_type, setRoom_type] = useState(items);
+    const [room_type, setRoom_type] = useState('');
+    // const [room_type, setRoom_type] = useState(items);
     const [beds, setBeds] = useState('');
     const [room_description, setRoom_description] = useState();
     const [is_available, setIs_available] = useState(1);
@@ -27,7 +36,7 @@ export default function RoomAddComp() {
     const [room_price, setRoom_price] = useState('');
     const [room_images, setRoom_images] = useState(null);
 
-    const Add = room_type.map(Add => Add)
+    // const Add = room_type.map(Add => Add)
 
     const onHotelChange = e => setHotel(e.target.value);
     const onRoomChange = e => setRoom(e.target.value);
@@ -43,7 +52,7 @@ export default function RoomAddComp() {
     const onSubmit = async e => {
         e.preventDefault();
 
-
+        console.log(room_type);
         const formData = new FormData();
         formData.append('hotel', hotel);
         formData.append('room', room);
@@ -54,10 +63,10 @@ export default function RoomAddComp() {
         formData.append('room_price', room_price);
         formData.append('room_images', room_images);
 
-
+        console.log(hotel,room_type,room, beds, room_description,is_available, room_price, room_images );
         const body = formData;
         // const token = getCookie('token');
-        let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzMTU5MjE4LCJpYXQiOjE2NjMxNDg0MTgsImp0aSI6IjEzZTE5OTM5ZDZiZDQ2MjQ4MzQ5ZmFhMWE5MWU1ZmY3IiwidXNlcl9pZCI6M30.L1ohRPXrKCnuGa7HyZYM0yfs-orG14bSydmP_3wNX8k'
+        let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY0NDczOTE5LCJpYXQiOjE2NjQ0NjMxMTksImp0aSI6IjgxMTk1NDBiMWU4YzQ3NjlhOWU4MTA0MDRjYWM3NjBkIiwidXNlcl9pZCI6NX0.xbv8yk6_of9GVlaAL98PgujblYmgilPT0nfT9Q0Sr8g'
 
         try {
             const res = await axios.post('http://localhost:8000/portal/room/', body, {
@@ -92,7 +101,7 @@ export default function RoomAddComp() {
                     <div class="relative z-0 mb-8 w-full group">
 
                         <label for="underline_select" class="sr-only">Underline select</label>
-                        {/* <select id="underline_select" onChange={onRoom_typeChange} value={room_type} class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                        <select id="underline_select" onChange={onRoom_typeChange} value={room_type} class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                         <option selected="" >Choose a Room Type</option>
                         <option value='1'>Single</option>
                         <option value="2">Double</option>
@@ -107,16 +116,24 @@ export default function RoomAddComp() {
                         <option value="presidentSuite">Presidential Suite</option>
                         <option value="connectingRooms">Connecting rooms</option>
 
-                    </select> */}
+                    </select>
 
-                        < select
-                            onChange={onRoom_typeChange}
+                        {/* < select
+                            onChange={(event) => setRoom_type(event.currentTarget.value)} value={room_type}
                             class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer" >
-                            {
+                            {/* {
                                 Add.map((address, key) => <option key={key} value={key}>{address}
                                 </option>)
-                            }
-                        </select >
+                            } */} 
+
+                            {/* <option value="">Select value...</option>
+                            {items.map((items) => (
+                                <option key={items.value} value={items.value}>
+                                    {items.label}
+                                </option>
+))}
+                        </select > */} 
+                        
                     </div>
 
                     <div class="relative z-0 mb-8 w-full group">
