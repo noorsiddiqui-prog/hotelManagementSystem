@@ -47,7 +47,7 @@ export default function MealAddComp() {
 
         const body = formData;
         // const token = getCookie('token');
-        let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzMTc4MjkxLCJpYXQiOjE2NjMxNjc0OTEsImp0aSI6ImIxYThkMjA5YTljYzQ2NjZiODdkZDc3ZWM2YTBmNzY0IiwidXNlcl9pZCI6M30.RcO6rUGsxuNyGyBQbVPAaGzvkew-Uvuk3Zn0kvb4nbw'
+        let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY0MzExNTAwLCJpYXQiOjE2NjQzMDA3MDAsImp0aSI6ImM2N2U2NGIxNmEzNTQ4YTliMGFhY2RkYWE2ODQ0MmU0IiwidXNlcl9pZCI6NX0.KjCJVDf-w6I2ncnhLlkXGw_TjMRu1iRDoVpLflvaCPc'
 
         try {
             const res = await axios.post('http://localhost:8000/portal/food/', body, {
