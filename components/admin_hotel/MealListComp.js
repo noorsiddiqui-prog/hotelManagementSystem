@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 
 
-const token= "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzNzAzNjA0LCJpYXQiOjE2NjM2OTI4MDQsImp0aSI6ImUzY2YxZjY1OWQwMDQ3OGI5NjJkNzJkMjAyZTNjYzk4IiwidXNlcl9pZCI6M30.WWAx9hhhmq0qk4WLZWJB24byeZLMDJSJil4DSy9qGXg"
+const token= "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY0Mjg4MDI0LCJpYXQiOjE2NjQyNzcyMjQsImp0aSI6IjJiZmU3MmJkY2RkZjRlNWU4MGQ4Mzg3YjRlYTg5YjI2IiwidXNlcl9pZCI6NX0.08ozB9TUDinLLYgCLDdmtKkAgV1hNw_0sTQc-pjO7pg"
 export default function MealListComp() {
 
     const [loading, setLoading] = useState(true);
@@ -63,8 +63,8 @@ export default function MealListComp() {
         </thead>
         <tbody>
         {data.map(x => (
-            <div key={x.id}>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            
+            <tr key={x.id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="p-4 w-32" key={x.food_image}>
                     <img src={x.food_image} />
                 </td>
@@ -89,7 +89,7 @@ export default function MealListComp() {
                 </td>
             </tr>
             
-            </div>
+            
             ))}
         </tbody>
     </table>
